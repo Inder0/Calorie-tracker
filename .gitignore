@@ -1,0 +1,77 @@
+# =========================
+# PYTHON
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# DJANGO
+# =========================
+*.log
+*.pot
+*.pyc
+
+# SQLite DB (dev only)
+db.sqlite3
+
+# Media uploads
+media/
+
+# Static files (if collected)
+staticfiles/
+
+# =========================
+# ENV / SECRETS
+# =========================
+.env
+.env.*
+*.env
+
+# =========================
+# VIRTUAL ENV
+# =========================
+venv/
+env/
+ENV/
+
+# =========================
+# IDE / EDITOR
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS FILES
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# TEST / CACHE
+# =========================
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+
+# =========================
+# MIGRATIONS (OPTIONAL)
+# =========================
+# Uncomment ONLY if you know what you're doing
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# =========================
+# NODE (if ever added later)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# =========================
+# OTHER
+# =========================
+*.sqlite3
