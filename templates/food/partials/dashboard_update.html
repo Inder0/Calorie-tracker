@@ -1,0 +1,131 @@
+<div class="w-full relative max-w-2xl mx-auto space-y-6">
+
+    <form 
+        method="post"
+        hx-post="{% url 'add_food' %}"
+        hx-target="#dashboard"
+        hx-swap="innerHTML"
+        class="bg-gray-800 p-5 rounded-2xl shadow w-full space-y-6 mt-q"
+    >
+        {% csrf_token %}
+
+        <h2 class="text-lg font-semibold">Add Food</h2>
+
+        <input 
+            type="text"
+            name="search"
+            placeholder="Search food..."
+            hx-get="{% url 'search_food' %}"
+            hx-trigger="keyup changed delay:300ms"
+            hx-target="#search-results"
+            class="w-full bg-gray-700 p-3 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+        >
+
+        <div id="search-results" class="bg-gray-700 rounded"></div>
+
+        {{ form.food.as_hidden }}
+
+        <div>
+            {{ form.quantity }}
+        </div>
+
+        <p id="quantity-help" class="text-sm text-gray-400">
+            Enter quantity
+        </p>
+
+        <button 
+            type="submit" 
+            class="w-full bg-blue-500 hover:bg-blue-600 transition p-3 rounded-lg font-semibold"
+        >
+            Add Food
+        </button>
+
+    </form>
+
+<div class="mx-auto w-full space-y-6">
+<div class="grid grid-cols-1 w-full lg:grid-cols-3 gap-6">
+
+    <div class="lg:col-span-2 w-full space-y-6">
+
+        <div class="bg-gray-800 p-5 rounded-2xl shadow">
+            <h2 class="text-lg font-semibold mb-2">Calories</h2>
+
+            <div class="flex justify-between items-center">
+                <p class="text-xl md:text-2xl font-bold">
+                    {{ total_calories|floatformat:0 }} / {{ goal }}
+                </p>
+                <span class="text-sm text-gray-400">kcal</span>
+            </div>
+
+            <div class="mt-3 bg-gray-700 h-3 rounded-full overflow-hidden">
+                <div 
+                    class="h-full bg-blue-500 transition-all"
+                    style="width: {% widthratio total_calories goal 100 %}%"
+                ></div>
+            </div>
+        </div>
+
+        <div class="bg-gray-800 p-4 rounded-2xl shadow space-y-2">
+            <h2 class="text-lg font-semibold">Insights</h2>
+
+            {% for text, color in insights %}
+                <p class="text-sm {{ color }}">• {{ text }}</p>
+            {% empty %}
+                <p class="text-gray-400 text-sm">No insights yet</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="space-y-3">
+
+        <div class="bg-gray-800 p-2 rounded-2xl shadow text-center">
+            <h2 class="text-lg font-semibold mb-3 sm:mb-0">Macros</h2>
+            {% if total_calories > 0 %}
+
+            <div class="w-40 h-40 sm:w-25 mx-auto sm:h-52 px-auto ">
+                <canvas 
+                    id="macroChart"
+                    data-carbs="{{ total_carbs|default:0 }}"
+                    data-protein="{{ total_protein|default:0 }}"
+                    data-fat="{{ total_fat|default:0 }}"
+                ></canvas>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-2 mt-3 sm:mt-0 text-sm">
+
+            <span class="flex items-center gap-2">
+                <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                <span>Carbs</span>
+                <span class="text-gray-400">({{ carbs_pct|floatformat:1 }}%)</span>
+            </span>
+
+            <span class="flex items-center gap-2">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span>Protein</span>
+                <span class="text-gray-400">({{ protein_pct|floatformat:1 }}%)</span>
+            </span>
+
+            <span class="flex items-center gap-2">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span>Fat</span>
+                <span class="text-gray-400">({{ fat_pct|floatformat:1 }}%)</span>
+            </span>
+
+
+        </div>
+        {% else %}
+            <div class="flex-1 flex items-center w-auto h-56 justify-center text-gray-400">
+                No data to display 📊
+            </div>
+        {% endif %}
+        </div>
+    </div>
+
+
+</div>
+<div class="bg-gray-800 p-4 rounded-2xl shadow overflow-x-auto">
+        {% include "food/partials/food_table.html" %}
+</div>
+</div>
+</div>

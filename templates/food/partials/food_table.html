@@ -1,0 +1,211 @@
+<div class="bg-gray-800 rounded-2xl w-full shadow overflow-hidden">
+
+    <div class=" hidden sm:block overflow-x-auto">
+        <table class="w-full text-sm">
+            <thead class=" text-gray-400 text-xs uppercase tracking-wider">
+                <tr>
+                    <th class="px-4 py-3 text-left bg-gray-900/50">Food</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Qty</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Carbs</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Protein</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Fat</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Calories</th>
+                    <th class="px-4 py-3 text-right bg-gray-900/50">Date/Time</th>
+                    <th class="px-4 py-3 bg-transparent"></th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-700">
+
+            {% if logs %}
+                {% for log in logs %}
+                <tr class=" transition">
+                    <td class="px-4 py-3 font-medium text-white">
+                        {{ log.food.name }}
+                    </td>
+                    <td class="px-4 py-3 text-right text-gray-300">
+                        {{ log.quantity }}
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                        {{ log.carbs_val|floatformat:1 }}
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                        {{ log.protein_val|floatformat:1 }}
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                        {{ log.fat_val|floatformat:1 }}
+                    </td>
+                    <td class="px-4 py-3 text-right font-medium">
+                        {{ log.cal_val|floatformat:1 }}
+                    </td>
+                    <td class="px-4 py-3 text-right text-sm font-medium">
+                        {{ log.created_at }}
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                        <button
+                            hx-post="{% url 'delete_food' log.id %}"
+                            hx-target="#dashboard"
+                            hx-swap="innerHTML"
+                            class="text-red-400 hover:text-red-300 text-xs"
+                        >
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center py-8 text-gray-400">
+                        No food logs yet 🍽️
+                    </td>
+                </tr>
+            {% endif %}
+
+        </tbody>
+
+             {% if logs %}
+            <tfoot class="bg-gray-900/40 font-semibold border-t border-gray-700">
+                <tr>
+                    <td class="px-4 py-3">Total</td>
+                    <td></td>
+
+                    <td class="px-4 py-3 text-right">
+                        {{ total_carbs|floatformat:1 }}
+                    </td>
+
+                    <td class="px-4 py-3 text-right">
+                        {{ total_protein|floatformat:1 }}
+                    </td>
+
+                    <td class="px-4 py-3 text-right">
+                        {{ total_fat|floatformat:1 }}
+                    </td>
+
+                    <td class="px-4 py-3 text-right">
+                        {{ total_calories|floatformat:1 }}
+                    </td>
+
+                    <td></td>
+                </tr>
+            </tfoot>
+            {% endif %}
+
+        </table>
+    </div>
+    <div class="items-center justify-between mt-4 px-4 hidden mb-3 sm:flex">
+        {% if page_obj.has_previous %}
+            <a 
+                hx-get="{% url 'dashboard' %}?page={{ page_obj.previous_page_number }}"
+                hx-target="#dashboard"
+                hx-swap="innerHTML"
+                class="px-3 py-1 text-sm bg-gray-700 rounded hover:bg-gray-600 transition"
+            >
+                Prev
+            </a>
+        {% else %}
+            <div></div>
+        {% endif %}
+        <span class="text-sm text-gray-400">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+        {% if page_obj.has_next %}
+            <a 
+                hx-get="{% url 'dashboard' %}?page={{ page_obj.next_page_number }}"
+                hx-target="#dashboard"
+                hx-swap="innerHTML"
+                class="px-3 py-1 text-sm bg-gray-700 rounded hover:bg-gray-600 transition"
+            >
+                Next
+            </a>
+        {% else %}
+            <div></div>
+        {% endif %}
+
+    </div>
+<div class="sm:hidden space-y-3">
+
+    {% if logs %}
+    <div class="bg-gray-800 p-4 rounded-xl border-t border-gray-600 mt-2">
+
+            <div class="font-semibold mb-2">Total</div>
+
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-300">
+                <div>Carbs: {{ total_carbs|floatformat:1 }}</div>
+                <div>Calories: {{ total_calories|floatformat:0 }}</div>
+                <div>Protein: {{ total_protein|floatformat:1 }}</div>
+                <div>Fat: {{ total_fat|floatformat:1 }}</div>
+            </div>
+
+        </div>
+        {% for log in logs %}
+        <div class="bg-gray-700/50 p-4 rounded-xl space-y-2">
+
+            <div class="bg-gray-700/50 p-4 rounded-xl space-y-2">
+            <div class="flex justify-between items-center">
+                <span class="font-semibold text-white">
+                    {{ log.food.name }}
+                </span>
+
+                <button
+                    hx-post="{% url 'delete_food' log.id %}"
+                    hx-target="#dashboard"
+                    hx-swap="innerHTML"
+                    class="text-red-400 text-xs shrink-0"
+                >
+                    Delete
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 text-sm text-gray-300">
+                <div>Qty: {{ log.quantity }}</div>
+                <div>Calories: {{ log.cal_val|floatformat:0 }}</div>
+                <div>Carbs: {{ log.carbs_val|floatformat:1 }}</div>
+                <div>Protein: {{ log.protein_val|floatformat:1 }}</div>
+                <div>Fat: {{ log.fat_val|floatformat:1 }}</div>
+                <div class="text-xs">{{ log.created_at }}</div>
+            </div>
+
+        </div>
+
+        </div>
+        {% endfor %}
+        
+
+    {% else %}
+        <div class="text-center text-gray-400 py-6">
+            No food logs yet 🍽️
+        </div>
+    {% endif %}
+    <div class="flex sm:hidden space-x-4 justify-center items-center mt-4 text-sm">
+
+    {% if page_obj.has_previous %}
+        <a 
+            hx-get="?page={{ page_obj.previous_page_number }}"
+            hx-target="#dashboard"
+            class="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600"
+        >
+            Prev
+        </a>
+    {% else %}
+        <span></span>
+    {% endif %}
+
+    <div class="flex justify-center mb-4 items-center mt-4 text-xs text-gray-400">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </div>
+
+    {% if page_obj.has_next %}
+        <a 
+            hx-get="?page={{ page_obj.next_page_number }}"
+            hx-target="#dashboard"
+            class="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600"
+        >
+            Next
+        </a>
+    {% else %}
+        <span></span>
+    {% endif %}
+
+</div>
+
+
+</div>

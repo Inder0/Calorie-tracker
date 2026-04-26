@@ -23,7 +23,7 @@ from django.contrib.auth.views import PasswordResetView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('',include('app.urls')),
+    path('',include('food.urls')),
     path("",include('users.urls')),
     path("", include("allauth.urls")),
     path("password-reset/",PasswordResetView.as_view(form_class=CustomPasswordResetForm), name="password_reset"),

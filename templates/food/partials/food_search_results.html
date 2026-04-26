@@ -1,0 +1,22 @@
+<div class="relative">
+    <div class="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-xl max-h-60 overflow-y-auto overflow-x-hidden">
+        {% for food in foods %}
+        <div 
+            class="flex items-center justify-between p-3 hover:bg-gray-700 cursor-pointer transition-colors border-b border-gray-700 last:border-0"
+            hx-on:click="
+                document.getElementById('id_food').value='{{ food.id }}';
+                document.querySelector('[name=search]').value='{{ food.name }}';
+                document.getElementById('quantity-help').innerText='Measured in: {{ food.unit_label }}';
+                document.getElementById('search-results').innerHTML='';
+            "
+        >
+            <span class="font-medium text-gray-100">{{ food.name }}</span>
+            <span class="text-xs text-gray-500 italic">{{ food.unit_label }}</span>
+        </div>
+        {% empty %}
+        <div class="p-4 text-gray-400 text-sm italic">
+            No matching food found...
+        </div>
+        {% endfor %}
+    </div>
+</div>

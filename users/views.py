@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import logout
 from .forms import UserRegisterForm,LoginForm
-from django.contrib.auth.views import LoginView,PasswordResetView
+from django.contrib.auth.views import LoginView
 from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from .models import Profile
