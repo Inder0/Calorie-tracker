@@ -1,0 +1,67 @@
+[
+{"model":"food.fooditem","fields":{"name":"Rice (White, Cooked)","unit":"unit","unit_name":"cup","grams_per_unit":50,"carbs":28,"protein":2.7,"fat":0.3,"calories":130}},
+{"model":"food.fooditem","fields":{"name":"Rice (Brown, Cooked)","unit":"unit","unit_name":"cup","grams_per_unit":50,"carbs":23,"protein":2.6,"fat":0.9,"calories":111}},
+{"model":"food.fooditem","fields":{"name":"Roti","unit":"unit","unit_name":"piece","grams_per_unit":40,"carbs":20,"protein":3,"fat":1,"calories":100}},
+{"model":"food.fooditem","fields":{"name":"Paratha (Plain)","unit":"unit","unit_name":"piece","grams_per_unit":70,"carbs":30,"protein":4,"fat":10,"calories":220}},
+
+{"model":"food.fooditem","fields":{"name":"Whole Egg","unit":"unit","unit_name":"egg","grams_per_unit":50,"carbs":1.1,"protein":13,"fat":11,"calories":155}},
+{"model":"food.fooditem","fields":{"name":"Egg White","unit":"unit","unit_name":"egg white","grams_per_unit":33,"carbs":0.7,"protein":11,"fat":0.2,"calories":52}},
+{"model":"food.fooditem","fields":{"name":"Boiled Egg","unit":"unit","unit_name":"egg","grams_per_unit":50,"carbs":1.1,"protein":13,"fat":11,"calories":155}},
+
+{"model":"food.fooditem","fields":{"name":"Banana","unit":"unit","unit_name":"piece","grams_per_unit":100,"carbs":23,"protein":1.1,"fat":0.3,"calories":89}},
+{"model":"food.fooditem","fields":{"name":"Apple","unit":"unit","unit_name":"piece","grams_per_unit":120,"carbs":25,"protein":0.5,"fat":0.3,"calories":95}},
+{"model":"food.fooditem","fields":{"name":"Orange","unit":"unit","unit_name":"piece","grams_per_unit":130,"carbs":15,"protein":1,"fat":0.2,"calories":62}},
+{"model":"food.fooditem","fields":{"name":"Mango","unit":"unit","unit_name":"piece","grams_per_unit":200,"carbs":35,"protein":1.4,"fat":0.6,"calories":135}},
+
+{"model":"food.fooditem","fields":{"name":"Chicken Breast (Cooked)","unit":"g","unit_name":"","grams_per_unit":null,"carbs":0,"protein":31,"fat":3.6,"calories":165}},
+{"model":"food.fooditem","fields":{"name":"Chicken Curry","unit":"g","unit_name":"","grams_per_unit":null,"carbs":5,"protein":20,"fat":10,"calories":220}},
+
+{"model":"food.fooditem","fields":{"name":"Paneer","unit":"g","unit_name":"","grams_per_unit":null,"carbs":3,"protein":18,"fat":20,"calories":265}},
+{"model":"food.fooditem","fields":{"name":"Tofu","unit":"g","unit_name":"","grams_per_unit":null,"carbs":2,"protein":8,"fat":5,"calories":76}},
+
+{"model":"food.fooditem","fields":{"name":"Dal (Cooked)","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":20,"protein":9,"fat":1,"calories":116}},
+{"model":"food.fooditem","fields":{"name":"Rajma","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":22,"protein":8,"fat":1,"calories":127}},
+{"model":"food.fooditem","fields":{"name":"Chole","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":27,"protein":9,"fat":3,"calories":164}},
+
+{"model":"food.fooditem","fields":{"name":"Aloo Sabzi","unit":"unit","unit_name":"cup","grams_per_unit":150,"carbs":20,"protein":2,"fat":5,"calories":150}},
+{"model":"food.fooditem","fields":{"name":"Bhindi Sabzi","unit":"unit","unit_name":"cup","grams_per_unit":150,"carbs":10,"protein":2,"fat":5,"calories":90}},
+{"model":"food.fooditem","fields":{"name":"Mixed Veg Sabzi","unit":"unit","unit_name":"cup","grams_per_unit":150,"carbs":12,"protein":3,"fat":4,"calories":100}},
+
+{"model":"food.fooditem","fields":{"name":"Milk","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":5,"protein":3.4,"fat":3.3,"calories":60}},
+{"model":"food.fooditem","fields":{"name":"Curd","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":4,"protein":3.5,"fat":3,"calories":60}},
+{"model":"food.fooditem","fields":{"name":"Greek Yogurt","unit":"unit","unit_name":"cup","grams_per_unit":200,"carbs":3.5,"protein":10,"fat":0.4,"calories":59}},
+
+{"model":"food.fooditem","fields":{"name":"Butter","unit":"unit","unit_name":"spoon","grams_per_unit":10,"carbs":0.1,"protein":0.9,"fat":81,"calories":717}},
+{"model":"food.fooditem","fields":{"name":"Ghee","unit":"unit","unit_name":"spoon","grams_per_unit":10,"carbs":0,"protein":0,"fat":100,"calories":900}},
+{"model":"food.fooditem","fields":{"name":"Oil","unit":"unit","unit_name":"spoon","grams_per_unit":10,"carbs":0,"protein":0,"fat":100,"calories":900}},
+
+{"model":"food.fooditem","fields":{"name":"Bread Slice","unit":"unit","unit_name":"slice","grams_per_unit":30,"carbs":13,"protein":2.5,"fat":1,"calories":70}},
+{"model":"food.fooditem","fields":{"name":"Brown Bread Slice","unit":"unit","unit_name":"slice","grams_per_unit":30,"carbs":12,"protein":3,"fat":1,"calories":65}},
+
+{"model":"food.fooditem","fields":{"name":"Oats","unit":"g","unit_name":"","grams_per_unit":null,"carbs":66,"protein":17,"fat":7,"calories":389}},
+{"model":"food.fooditem","fields":{"name":"Cornflakes","unit":"g","unit_name":"","grams_per_unit":null,"carbs":84,"protein":8,"fat":0.4,"calories":357}},
+{"model":"food.fooditem","fields":{"name":"Muesli","unit":"g","unit_name":"","grams_per_unit":null,"carbs":66,"protein":10,"fat":6,"calories":350}},
+
+{"model":"food.fooditem","fields":{"name":"Peanut Butter","unit":"unit","unit_name":"spoon","grams_per_unit":15,"carbs":20,"protein":25,"fat":50,"calories":588}},
+{"model":"food.fooditem","fields":{"name":"Almonds","unit":"g","unit_name":"","grams_per_unit":null,"carbs":22,"protein":21,"fat":49,"calories":579}},
+{"model":"food.fooditem","fields":{"name":"Cashews","unit":"g","unit_name":"","grams_per_unit":null,"carbs":30,"protein":18,"fat":44,"calories":553}},
+{"model":"food.fooditem","fields":{"name":"Walnuts","unit":"g","unit_name":"","grams_per_unit":null,"carbs":14,"protein":15,"fat":65,"calories":654}},
+
+{"model":"food.fooditem","fields":{"name":"Pizza Slice","unit":"unit","unit_name":"slice","grams_per_unit":120,"carbs":36,"protein":12,"fat":10,"calories":285}},
+{"model":"food.fooditem","fields":{"name":"Burger","unit":"unit","unit_name":"burger","grams_per_unit":150,"carbs":30,"protein":17,"fat":15,"calories":295}},
+{"model":"food.fooditem","fields":{"name":"French Fries","unit":"g","unit_name":"","grams_per_unit":null,"carbs":41,"protein":3.4,"fat":15,"calories":312}},
+
+{"model":"food.fooditem","fields":{"name":"Chocolate","unit":"g","unit_name":"","grams_per_unit":null,"carbs":60,"protein":5,"fat":30,"calories":546}},
+{"model":"food.fooditem","fields":{"name":"Ice Cream","unit":"g","unit_name":"","grams_per_unit":null,"carbs":24,"protein":3.5,"fat":11,"calories":207}},
+
+{"model":"food.fooditem","fields":{"name":"Maggi Noodles","unit":"g","unit_name":"","grams_per_unit":null,"carbs":60,"protein":7,"fat":14,"calories":380}},
+{"model":"food.fooditem","fields":{"name":"Pasta (Boiled)","unit":"g","unit_name":"","grams_per_unit":null,"carbs":75,"protein":13,"fat":1.5,"calories":370}},
+
+{"model":"food.fooditem","fields":{"name":"Cheese","unit":"g","unit_name":"","grams_per_unit":null,"carbs":1.3,"protein":25,"fat":33,"calories":402}},
+
+{"model":"food.fooditem","fields":{"name":"Coke","unit":"g","unit_name":"","grams_per_unit":null,"carbs":11,"protein":0,"fat":0,"calories":42}},
+{"model":"food.fooditem","fields":{"name":"Orange Juice","unit":"g","unit_name":"","grams_per_unit":null,"carbs":10,"protein":0.7,"fat":0.2,"calories":45}},
+
+{"model":"food.fooditem","fields":{"name":"Sugar","unit":"unit","unit_name":"spoon","grams_per_unit":10,"carbs":100,"protein":0,"fat":0,"calories":387}},
+{"model":"food.fooditem","fields":{"name":"Honey","unit":"unit","unit_name":"spoon","grams_per_unit":10,"carbs":82,"protein":0.3,"fat":0,"calories":304}}
+]

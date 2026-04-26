@@ -128,7 +128,7 @@ def get_food_unit(request):
         return HttpResponse("Enter grams")
     
 def search_food(request):
-    query = request.GET.get("q", "")
+    query = request.GET.get("search", "")
 
     foods = FoodItem.objects.filter(name__icontains=query)[:10]
 

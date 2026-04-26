@@ -6,12 +6,12 @@
             hx-on:click="
                 document.getElementById('id_food').value='{{ food.id }}';
                 document.querySelector('[name=search]').value='{{ food.name }}';
-                document.getElementById('quantity-help').innerText='Measured in: {{ food.unit_label }}';
+                document.getElementById('quantity-help').innerText='Measured in: {{ food.get_measurement_display }}';
                 document.getElementById('search-results').innerHTML='';
             "
         >
             <span class="font-medium text-gray-100">{{ food.name }}</span>
-            <span class="text-xs text-gray-500 italic">{{ food.unit_label }}</span>
+            <span class="text-xs text-gray-500 italic">{{ food.get_measurement_display }}</span>
         </div>
         {% empty %}
         <div class="p-4 text-gray-400 text-sm italic">
