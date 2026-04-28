@@ -1,9 +1,9 @@
 from django.db.models import Sum, F, FloatField,DateTimeField, ExpressionWrapper,Case,When
 from .models import FoodLog
-from django.utils import timezone
+from django.utils.timezone import localdate
 
 def get_user_food_logs(user):
-    today = timezone.now().date()
+    today = localdate()
     quantity_in_grams = Case(
         When(food__unit="unit", then=F("quantity") * F("food__grams_per_unit")),
         default=F("quantity"),
@@ -34,7 +34,7 @@ def get_user_food_logs(user):
     )
 
 def get_macro_totals(user):
-    today = timezone.now().date()
+    today = localdate()
     logs = FoodLog.objects.filter(user=user,created_at__date=today)
     quantity_in_grams = Case(
         When(food__unit="unit", then=F("quantity") * F("food__grams_per_unit")),

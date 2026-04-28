@@ -56,7 +56,7 @@ class AddFoodView(LoginRequiredMixin, FormView):
         food_log.save()
         return self.render_dashboard_partial(form=FoodLogForm())
 
-    def form_invalid(self, form):
+    def form_invalid(self, form):     
         return self.render_dashboard_partial(form=form)
 
     def render_dashboard_partial(self, form):
